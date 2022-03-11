@@ -1,3 +1,4 @@
+import { SnackbarProvider } from 'notistack';
 import { useEffect } from 'react';
 import Layout from '../components/Layout'
 import '../styles/globals.css'
@@ -11,13 +12,14 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
   return (
-    <StoreProviders>
-      
-    <Layout>
-    <Component {...pageProps} />
-    </Layout>
-    </StoreProviders>
-    );
+    <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+      <StoreProviders>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </StoreProviders>
+    </SnackbarProvider>
+  );
 }
 
 export default MyApp
