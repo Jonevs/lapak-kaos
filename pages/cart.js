@@ -1,54 +1,72 @@
-import { Typography, Grid, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Link, Select, MenuItem, Button, Card, List, ListItem } from '@mui/material';
-import Head from 'next/head';
-import React, { useContext } from 'react';
-import { Store } from '../utils/Store';
-import NextLink from 'next/link';
-import Image from 'next/image';
-import dynamic from 'next/dynamic';
-import axios from 'axios';
-import { useRouter } from 'next/router';
+import {
+  Typography,
+  Grid,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Link,
+  Select,
+  MenuItem,
+  Button,
+  Card,
+  List,
+  ListItem,
+} from "@mui/material";
+import Head from "next/head";
+import React, { useContext } from "react";
+import { Store } from "../utils/Store";
+import NextLink from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Delete from '@mui/icons-material/DeleteForeverRounded'
 
 const Cart = () => {
+  const router = useRouter();
+  const { state, dispatch } = useContext(Store);
+  const {
+    cart: { cartItems },
+  } = state;
 
-    const router = useRouter();
-    const {state, dispatch} = useContext(Store);
-    const {cart : {cartItems} } = state;
-
-    const updateCartHanlder = async (item, quantity) =>{
-        const {data} = await axios.get(`/api/products/${item._id}`);
-        if(data.countInStock < quantity){
-            window.alert('Sorry. Product is out of stock');
-            return;
-        }
-        dispatch({type: 'CART_ADD_ITEM', payload: {...item, quantity}});
-        
+  const updateCartHandler = async (item, quantity) => {
+    const { data } = await axios.get(`/api/products/${item._id}`);
+    if (data.countInStock < quantity) {
+      window.alert("Sorry. Product is out of stock");
+      return;
     }
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...item, quantity } });
+  };
 
-    const reomveItemHandler = (item) =>{
-        dispatch({type: 'CART_REMOVE_ITEM', payload: item})
-    }
+  const removeItemHandler = (item) => {
+    dispatch({ type: "CART_REMOVE_ITEM", payload: item });
+  };
 
-    const checkoutHandler = () =>{
-      router.push('/shipping');
-    }
+  const checkoutHandler = () => {
+    router.push("/shipping");
+  };
 
-    return (
-        <>
-             <Head>
-                <title>Shopping Cart</title>
-            </Head>
-            
-            <Typography component ='h1' variant='h1'>Shopping Cart</Typography>
-            {cartItems.length === 0 ? (
-                <div>
-                    Cart is Empty. <NextLink href='/' passHref>
-                        <Link>Go Shopping</Link>
-                        </NextLink>
-                </div>
-            ) 
-             :
-             (
-            <Grid container spacing={1}>
+  return (
+    <>
+      <Head>
+        <title>Shopping Cart</title>
+      </Head>
+
+      <Typography component="h1" variant="h1">
+        Shopping Cart
+      </Typography>
+      {cartItems.length === 0 ? (
+        <div>
+          Cart is Empty.{" "}
+          <NextLink href="/" passHref>
+            <Link>Go Shopping</Link>
+          </NextLink>
+        </div>
+      ) : (
+        <Grid container spacing={1}>
           <Grid item md={9} xs={12}>
             <TableContainer>
               <Table>
@@ -85,8 +103,12 @@ const Cart = () => {
                         </NextLink>
                       </TableCell>
                       <TableCell align="right">
-                        <Select value={item.quantity} 
-                        onChange={(event) => updateCartHanlder(item, event.target.value)}>
+                        <Select
+                          value={item.quantity}
+                          onChange={(event) =>
+                            updateCartHandler(item, event.target.value)
+                          }
+                        >
                           {[...Array(item.countInStock).keys()].map((x) => (
                             <MenuItem key={x + 1} value={x + 1}>
                               {x + 1}
@@ -94,11 +116,14 @@ const Cart = () => {
                           ))}
                         </Select>
                       </TableCell>
-                      <TableCell align="right">${item.price}</TableCell>
+                      <TableCell align="right">Rp. {item.price}</TableCell>
                       <TableCell align="right">
-                        <Button variant="contained" color="secondary"
-                        onClick={() => reomveItemHandler(item)}>
-                          x
+                        <Button
+                          variant="contained"
+                          color="secondary"
+                          onClick={() => removeItemHandler(item)}
+                        >
+                          <Delete/>
                         </Button>
                       </TableCell>
                     </TableRow>
@@ -112,25 +137,32 @@ const Cart = () => {
               <List>
                 <ListItem>
                   <Typography variant="h2">
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : $
-                    {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
+                    items) :
+                    <br />
+                    Rp. {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
                   </Typography>
                 </ListItem>
                 <ListItem>
-                  <Button onClick={checkoutHandler}
-                  variant="contained" color="primary" fullWidth>
+                  <Button
+                    onClick={checkoutHandler}
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                  >
+                    <b>
+
                     Check Out
+                    </b>
                   </Button>
                 </ListItem>
               </List>
             </Card>
           </Grid>
         </Grid>
-    )  }
+      )}
+    </>
+  );
+};
 
-        </>
-    );
-}
-
-export default dynamic(() => Promise.resolve(Cart), {ssr:false})
+export default dynamic(() => Promise.resolve(Cart), { ssr: false });
