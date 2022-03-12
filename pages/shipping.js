@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Button, List, ListItem, TextField, Typography } from "@mui/material";
 import Head from "next/head";
 import React, { useContext, useEffect } from "react";
@@ -42,28 +41,6 @@ const Shipping = () => {
     Cookies.set(
       "shippingAddress",
       JSON.stringify({ fullName, address, city, postalCode, country })
-=======
-import React, { useContext } from 'react';
-import {useRouter} from 'next/router'
-import  Head  from 'next/head';
-import {Store} from '../utils/Store';
-
-const Shipping = () => {
-    const router = useRouter();
-    const {state, dispatch} = useContext(Store);
-    const {userInfo} = state;
-    if(!userInfo) {
-        Router.push('/login?redirect=/shipping');
-    }
-    return (
-        <>
-        <Head>
-            <title>Shipping</title>
-        </Head>
-        
-            Shipping Page
-        </>
->>>>>>> a8d9ba8b585b1f17f2e1079516a9187cabd34311
     );
     Router.push("/payment");
   };
