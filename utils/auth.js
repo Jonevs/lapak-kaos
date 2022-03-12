@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import jwt from "jsonwebtoken";
 
 const signToken = (user) => {
@@ -43,21 +42,3 @@ const isAdmin = async (req, res, next) => {
 };
 
 export { signToken, isAuth, isAdmin };
-=======
-import jwt from 'jsonwebtoken';
-
-const signToken = (user) => {
-    return jwt.sign({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        isAdmin: user.isAdmin
-    },
-    process.env.JWT_SECRET,
-    {
-        expiresIn: '30d',
-    });
-};
-
-export {signToken};
->>>>>>> a8d9ba8b585b1f17f2e1079516a9187cabd34311

@@ -15,31 +15,20 @@
     "@mui/material": "^5.5.0",
     "axios": "^0.26.0",
     "bcryptjs": "^2.4.3",
-<<<<<<< HEAD
     "chart.js": "^3.7.1",
     "cloudinary": "^1.28.1",
     "js-cookie": "^3.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.4",
     "multer": "^1.4.4",
-=======
-    "js-cookie": "^3.0.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.4",
->>>>>>> a8d9ba8b585b1f17f2e1079516a9187cabd34311
     "next": "^12.1.0",
     "next-connect": "^0.12.2",
     "notistack": "^2.0.3",
     "react": "17.0.2",
-<<<<<<< HEAD
     "react-chartjs-2": "^4.0.1",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.27.1",
     "streamifier": "^0.1.1"
-=======
-    "react-dom": "17.0.2",
-    "react-hook-form": "^7.27.1"
->>>>>>> a8d9ba8b585b1f17f2e1079516a9187cabd34311
   },
   "devDependencies": {
     "eslint": "8.10.0",
