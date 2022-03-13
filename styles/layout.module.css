@@ -33,7 +33,6 @@
   text-align: center;
 }
 
-
 .form {
   width: 100%;
   max-width: 800px;
@@ -58,7 +57,11 @@
   color: white;
 }
 
-.navbarButton{
-    color: #ffffff;
-    text-transform: initial;
+.navbarButton {
+  color: #ffffff;
+  text-transform: initial;
+}
+
+.fullWidth {
+  width: 100%;
 }
