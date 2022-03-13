@@ -69,16 +69,11 @@ const Payment = () => {
                 onChange={(e) => setPaymentMethod(e.target.value)}
               >
                 <FormControlLabel
-                  label="OVO"
-                  value="OVO"
+                  label="Paypal"
+                  value="Paypal"
                   control={<Radio />}
                 ></FormControlLabel>
 
-                <FormControlLabel
-                  label="Cash"
-                  value="Cash"
-                  control={<Radio />}
-                ></FormControlLabel>
               </RadioGroup>
             </FormControl>
           </ListItem>
