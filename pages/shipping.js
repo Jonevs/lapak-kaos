@@ -1,14 +1,16 @@
 import { Button, List, ListItem, TextField, Typography } from "@mui/material";
 import Head from "next/head";
 import React, { useContext, useEffect } from "react";
-import styles from "../styles/layout.module.css";
+// import styles from "../styles/layout.module.css";
 import { Store } from "../utils/Store";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
 import CheckoutWizard from "../components/CheckoutWizard";
+import useStyles from "../utils/style";
 
 const Shipping = () => {
+  const styles = useStyles();
   const {
     handleSubmit,
     control,

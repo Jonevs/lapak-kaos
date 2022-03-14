@@ -10,14 +10,16 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect, useState, useContext } from "react";
-import styles from "../styles/layout.module.css";
+// import styles from "../styles/layout.module.css";
 import { Store } from "../utils/Store";
 import Cookies from "js-cookie";
 import Head from "next/head";
 import CheckoutWizard from "../components/CheckoutWizard";
 import { useSnackbar } from "notistack";
+import useStyles from "../utils/style";
 
 const Payment = () => {
+  const styles = useStyles();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const router = useRouter();
   const [paymentMethod, setPaymentMethod] = useState("");

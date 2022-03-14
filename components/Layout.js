@@ -17,7 +17,8 @@ import {
 import Head from "next/head";
 import NextLink from "next/link";
 import React, { useContext, useState } from "react";
-import styled from "../styles/layout.module.css";
+// import styled from "../styles/layout.module.css";
+import useStyles from "../utils/style";
 import { Store } from "../utils/Store";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
@@ -34,6 +35,7 @@ import { grey } from "@mui/material/colors";
 
 
 const Layout = (props) => {
+  const styled = useStyles();
   const Router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { darkMode, cart, userInfo } = state;

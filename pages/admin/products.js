@@ -29,8 +29,9 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
-import styled from "../../styles/layout.module.css";
+// import styled from "../../styles/layout.module.css";
 import { useSnackbar } from "notistack";
+import useStyles from "../../utils/style";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -59,6 +60,7 @@ function reducer(state, action) {
   }
 }
 const AdminProducts = () => {
+  const styled = useStyles();
   const { state } = useContext(Store);
   const router = useRouter();
   const { userInfo } = state;

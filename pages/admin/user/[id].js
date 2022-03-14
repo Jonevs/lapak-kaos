@@ -24,8 +24,9 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
-import styled from "../../../styles/layout.module.css";
+// import styled from "../../../styles/layout.module.css";
 import { useSnackbar } from "notistack";
+import useStyles from "../../../utils/style";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -53,6 +54,7 @@ function reducer(state, action) {
 }
 
 const UserEdit = ({ params }) => {
+  const styled = useStyles();
   const userId = params.id;
   const { state } = useContext(Store);
   const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {

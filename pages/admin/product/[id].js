@@ -22,8 +22,9 @@ import {
   TextField,
   CircularProgress,
 } from "@mui/material";
-import styled from "../../../styles/layout.module.css";
+// import styled from "../../../styles/layout.module.css";
 import { useSnackbar } from "notistack";
+import useStyles from "../../../utils/style";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -51,6 +52,7 @@ function reducer(state, action) {
 }
 
 const ProductEdit = ({ params }) => {
+  const styled = useStyles();
   const productId = params.id;
   const { state } = useContext(Store);
   const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =

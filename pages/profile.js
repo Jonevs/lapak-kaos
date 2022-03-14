@@ -19,11 +19,13 @@ import {
   Button,
   TextField,
 } from "@mui/material";
-import styled from "../styles/layout.module.css";
+// import styled from "../styles/layout.module.css";
 import { useSnackbar } from "notistack";
 import { grey } from "@mui/material/colors";
+import useStyles from "../utils/style";
 
 const Profile = () => {
+  const styled = useStyles();
   const { state, dispatch } = useContext(Store);
   const {
     handleSubmit,

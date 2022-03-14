@@ -17,7 +17,7 @@ import {
 
 import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
-import styled from "../styles/layout.module.css";
+// import styled from "../styles/layout.module.css";
 import { Store } from "../utils/Store";
 import { getError } from "../utils/error";
 import NextLink from "next/link";
@@ -28,8 +28,10 @@ import { useRouter } from "next/router";
 import CheckoutWizard from "../components/CheckoutWizard";
 import { useSnackbar } from "notistack";
 import Cookies from "js-cookie";
+import useStyles from "../utils/style";
 
 const PlaceOrder = () => {
+  const styled = useStyles();
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {

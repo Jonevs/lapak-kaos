@@ -23,8 +23,9 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
-import styled from "../styles/layout.module.css";
+// import styled from "../styles/layout.module.css";
 import { grey } from "@mui/material/colors";
+import useStyles from "../utils/style";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -39,6 +40,7 @@ function reducer(state, action) {
   }
 }
 const OrderHistory = () => {
+  const styled = useStyles();
   const { state } = useContext(Store);
   const router = useRouter();
   const { userInfo } = state;

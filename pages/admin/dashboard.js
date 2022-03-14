@@ -22,8 +22,9 @@ import {
   CardContent,
   CardActions,
 } from "@mui/material";
+import useStyles from "../../utils/style";
 // import { Bar } from "react-chartjs-2";
-import styled from "../../styles/layout.module.css";
+// import styled from "../../styles/layout.module.css";
 
 
 function reducer(state, action) {
@@ -39,6 +40,7 @@ function reducer(state, action) {
   }
 }
 const AdminDashboard = () => {
+  const styled = useStyles();
   const { state } = useContext(Store);
   const router = useRouter();
   const { userInfo } = state;

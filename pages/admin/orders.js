@@ -26,7 +26,8 @@ import {
   TableCell,
   TableBody,
 } from "@mui/material";
-import styled from "../../styles/layout.module.css";
+import useStyles from "../../utils/style";
+// import styled from "../../styles/layout.module.css";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -41,6 +42,7 @@ function reducer(state, action) {
   }
 }
 const AdminOrders = () => {
+  const styled = useStyles();
   const { state } = useContext(Store);
   const router = useRouter();
   const { userInfo } = state;

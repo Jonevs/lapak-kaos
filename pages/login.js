@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import Head from "next/head";
 import React, { useContext, useEffect } from "react";
-import styles from "../styles/layout.module.css";
+// import styles from "../styles/layout.module.css";
 import NextLink from "next/link";
 import axios from "axios";
 import { Store } from "../utils/Store";
@@ -17,8 +17,10 @@ import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import { Controller, useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
+import useStyles from "../utils/style";
 
 const Login = () => {
+  const styles = useStyles();
   const {
     handleSubmit,
     control,
