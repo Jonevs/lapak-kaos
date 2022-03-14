@@ -205,7 +205,7 @@ const AdminProducts = () => {
                         <TableRow>
                           <TableCell>ID</TableCell>
                           <TableCell>NAME</TableCell>
-                          <TableCell align="center">PRICE</TableCell>
+                          <TableCell>PRICE</TableCell>
                           <TableCell align="center">CATEGORY</TableCell>
                           <TableCell align="center">COUNT</TableCell>
                           <TableCell align="center">RATING</TableCell>
@@ -219,7 +219,7 @@ const AdminProducts = () => {
                               {product._id.substring(20, 24)}
                             </TableCell>
                             <TableCell>{product.name}</TableCell>
-                            <TableCell align="center">Rp. {product.price}</TableCell>
+                            <TableCell>Rp. {product.price}</TableCell>
                             <TableCell align="center">{product.category}</TableCell>
                             <TableCell align="center">{product.countInStock}</TableCell>
                             <TableCell align="center">{product.rating}</TableCell>

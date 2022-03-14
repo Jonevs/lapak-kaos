@@ -6,6 +6,8 @@ import useStyles from "../utils/style";
 const CheckoutWizard = ({ activeStep = 0 }) => {
   const styled = useStyles();
   return (
+    <div style={{marginTop: '30px'}}>
+
     <Stepper className={styled.transparentBackground} activeStep={activeStep} alternativeLabel>
       {["Login", "Shipping Address", "Payment Method", "Place Order"].map(
         (step) => (
@@ -13,8 +15,9 @@ const CheckoutWizard = ({ activeStep = 0 }) => {
             <StepLabel>{step}</StepLabel>
           </Step>
         )
-      )}
+        )}
     </Stepper>
+    </div>
   );
 };
 
