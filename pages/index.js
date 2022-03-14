@@ -48,6 +48,8 @@ export default function Home(props) {
                     component="img"
                     image={product.image}
                     title={product.name}
+                    width={300}
+                    height={320}
                   ></CardMedia>
                   <CardContent>
                     <Typography>{product.name}</Typography>
