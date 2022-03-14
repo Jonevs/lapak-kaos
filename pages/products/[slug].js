@@ -36,7 +36,7 @@ const ProductDetails = (props) => {
       <Head>
         <title>{product.name}</title>
       </Head>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} style={{marginTop : '10px'}}>
         <Grid item md={4} xs={12}>
           <Image
             src={product.image}
